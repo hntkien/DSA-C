@@ -36,14 +36,31 @@ void insertatbegin(int data) {
     head = lk;
 }
 
+/* ---------- Insertion at the beginning ---------- */
+void insertatend(int data) {
+    // Create a link 
+    struct node *lk = (struct node*) malloc(sizeof(struct node));
+    lk->data = data;
+    struct node *linkedlist = head;
+
+    // Point it to old first node 
+    while (linkedlist->next == NULL) {
+        linkedlist = linkedlist->next;
+    }
+
+    
+    // Point first to new first node 
+    linkedlist->next = lk;
+}
+
 /* ---------- Main Function ---------- */
 void main(void) {
     int k = 0;
     insertatbegin(12);
-    insertatbegin(22);
-    insertatbegin(30);
-    insertatbegin(44);
-    insertatbegin(55);
+    insertatend(22);
+    // insertatend(30);
+    // insertatend(14);
+    // insertatend(32);
     printf("Linked List: ");
     printList();
 
